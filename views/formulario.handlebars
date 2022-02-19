@@ -1,0 +1,78 @@
+{{!-- CSS --}}
+<style>
+    {{!-- VARIÁVEIS --}}
+    :root{
+        --white:rgb(255, 251, 251);
+        --grey:rgb(218, 218, 218);
+        --black:rgb(0, 0, 0);
+    }
+    {{!-- GLOBAL --}}
+    *{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    body{
+        background: linear-gradient(to right, #2193b0, #6dd5ed);
+    }
+    main{
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: var(--white);
+        width: 30%;
+        height: 300px;
+        margin: auto;
+        padding: 10px;
+        box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, .5);
+        border-radius: 10px;
+    }
+    input{
+        width: 90%;
+        outline: none;
+        border: none;
+    }
+    textarea{
+        border: none;
+        outline: none;
+        background: var(--grey);
+        resize: none;
+        font-family: Arial, Helvetica, sans-serif;
+        width: 90%;
+    }
+    .textos{
+        border-radius: 5px;
+        font-size: 16px;
+        background: var(--grey);
+        margin: 5px;
+        padding: 5px;
+    }
+    .textos:hover{
+        box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+    .botao{
+        font-size: 1.3rem;
+        cursor: pointer;
+        border-radius: 5px;
+        margin: 5px;
+        padding: 5px;
+    }
+    .botao:hover{
+        background-color: #6dd5ed;
+        font-weight: 550;
+    }
+</style>
+{{!-- HTML - TELA DE PREENCHIMENTO DO FORMULÁRIO--}}
+<main>
+    <h1>Formulário Dev Web</h1>
+    <form action="/envia-formulario" method="post"> <!--forms_dev-->
+        <input type="text" name="nome" class="textos" placeholder="Seu nome" required><br>
+        <input type="email" name="email" class="textos" placeholder="exemplo@gmail.com" required><br>
+        <textarea name="mensagem"  class="textos" id="" cols="30" rows="10" placeholder="Mensagem" maxlength="100" minlength="5" required></textarea>
+        <br>
+        <input type="submit" class="botao">
+    </form>
+</main>
