@@ -1,0 +1,83 @@
+{{!-- CSS --}}
+<style>
+    :root{
+        --white:rgb(255, 251, 251);
+        --grey:rgb(172, 171, 171);
+        --black:rgb(0, 0, 0);
+    }
+    *{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    body{
+        text-align: center;
+        background: linear-gradient(to right, #2193b0, #6dd5ed);
+    }
+    header{
+        padding: 10px;
+        margin: auto;
+        margin-bottom: 10px;
+        width: 62%;
+        background: var(--black);
+        color: var(--white);
+    }
+    section{
+        display: flex;
+        width: 80%;
+        justify-content: center;
+        margin: auto;
+    }
+    div{
+        width: 200px;
+        margin: 0px;
+        background: var(--white);
+        color: var(--black)
+        text-align: center;
+        padding-top: 10px;
+    }
+    label{
+        font-weight: 550;
+    }
+    hr{
+        width: 70%;
+    }
+</style>
+{{!-- HTML - TELA DE LISTAGEM DOS FORMULÁRIOS --}}
+<header>
+    <h1>Formulários enviados</h1>
+</header>
+{{#each form_devs}} 
+    <section>
+        <div>
+            <label for="">Nome:</label>
+            <br> 
+            <p>{{nome}}</p>
+        </div>
+        <div>
+            <label for="">E-mail:</label>
+            <br> 
+            <p>{{email}}</p>
+        </div>
+        <div>
+            <label for="">Mensagem:</label>
+            <br>
+            <p>{{mensagem}}</p>
+        </div>
+        <div>
+            <label for="">Data - Formato 1:</label>
+            <br> 
+            <p>{{#formatDate createdAt}}{{/formatDate}}</p>
+        </div>
+        <div>
+            <label for="">Data - Formato 2:</label>
+            <br> 
+            <p>{{#formatDate2 createdAt}}{{/formatDate2}}</p>
+            </div>
+        <div>
+            <label for="">Data - Formato 3:</label>
+            <br> 
+            <p>{{#formatDate3 createdAt}}{{/formatDate3}}</p>
+        </div>
+    </section>
+    <hr>
+{{/each}}
+<h4>Clique na &#8656; (seta) do navegador para voltar à página de envio de formulários.</h4>

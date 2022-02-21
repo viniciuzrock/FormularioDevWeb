@@ -1,0 +1,50 @@
+-- CRIAÇÃO DA TABELA
+CREATE TABLE forms(nome VARCHAR(100), email VARCHAR(100), mensagem VARCHAR(300);  
+
+-- CASO HAJA PROBLEMA COM O USUÁRIO
+CREATE USER 'nome'@'localhost' IDENTIFIED WITH mysql_native_password BY 'senha';
+
+EXEMPLO: novo user do mysql: -u vinicius -p 1234
+
+-- HABILITAR PERMISSÕES
+GRANT ALL PRIVILEGES ON * . * TO 'nome'@'localhost'
+
+INSERT INTO forms (nome, email, mensagem) values ('Teste','teste@gmail','Mensagem Teste');
+
+-- INSERT NO BANCO DE DADOS
+connection.query("INSERT INTO users (nome, email) VALUES('teste2','teste2@gmail')", function(erro,result){
+    if(!erro){
+        console.log('Usuário cadastrado com sucesso!');
+    }else{
+        console.log('Erro ao cadastrar usuário.');
+    }
+    return
+})
+-- SELECT NO BANCO DE DADOS
+connection.query('SELECT * FROM users', function(err, rows, fields){
+    if(!err){
+        console.log("Resultado: ", rows);
+    }
+    else
+    {
+        console.log('Erro ao realizar a consulta.');
+    }
+})
+
+-- UPDATE NO BANCO DE DADOS
+connection.query("UPDATE users set nome = 'thiago' where id=29", function(erro,result){
+    if(!erro){
+        console.log('Cadastro de usuário atualizado!')
+    }else{
+        console.log('Erro na atualização de cadastro.')
+    }
+})
+
+-- DELETE NO BANCO DE DADOS
+connection.query("DELETE FROM users WHERE id=30", function(erro,result){
+    if(!erro){
+        console.log('Cadastro excluído com sucesso!')
+    }else{
+        console.log('Erro na exclusão do cadastro.')
+    }
+})
